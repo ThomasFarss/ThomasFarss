@@ -733,16 +733,6 @@ select {
   color: #3d444b;
 }
 
-.admin__delete {
-  border: none;
-  background: #b8201c;
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 12px;
-}
-
 .footer__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
