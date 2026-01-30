@@ -1,0 +1,45 @@
+.admin-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+.admin-content {
+  padding: 32px;
+}
+
+.stat-cards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.chart-bar {
+  display: grid;
+  gap: 12px;
+}
+
+.chart-bar span {
+  display: block;
+  background: rgba(76, 110, 245, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+}
+
+.admin-table-actions {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 920px) {
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    min-height: auto;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+  }
+}

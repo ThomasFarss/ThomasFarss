@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cupons | Admin</title>
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/admin.css" />
+  </head>
+  <body data-page="cupons">
+    <div class="admin-layout">
+      <aside class="sidebar" id="admin-sidebar"></aside>
+      <section class="admin-content">
+        <header class="header-admin">
+          <h1>Cupons</h1>
+          <button class="button secondary" id="admin-logout">Sair</button>
+        </header>
+        <div class="card">
+          <h3>Novo / Editar cupom</h3>
+          <form id="coupon-form" class="form-row">
+            <input type="hidden" name="id" />
+            <input class="input" name="code" placeholder="Código" required />
+            <select class="input" name="type">
+              <option value="percent">Percentual</option>
+              <option value="value">Valor fixo</option>
+            </select>
+            <input class="input" name="value" type="number" placeholder="Valor" required />
+            <input class="input" name="validUntil" type="date" required />
+            <label class="form-group">
+              <span>Ativo</span>
+              <input type="checkbox" name="active" />
+            </label>
+            <button class="button">Salvar</button>
+          </form>
+        </div>
+        <section class="section">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Tipo</th>
+                <th>Valor</th>
+                <th>Validade</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="coupons-table"></tbody>
+          </table>
+        </section>
+      </section>
+    </div>
+
+    <script type="module" src="../assets/js/app.js"></script>
+  </body>
+</html>

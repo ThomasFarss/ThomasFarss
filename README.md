@@ -1,26 +1,40 @@
+# Helpe Lojas - E-commerce Front-end
 
+Projeto front-end completo para a **Helpe Lojas**, focado em produtos digitais como gift cards, emuladores e assinaturas. A aplicação é 100% em HTML, CSS e JavaScript puro, com dados simulados em `localStorage`.
 
-<p align="center">
-  <img 
-    src="https://github-readme-stats.vercel.app/api?username=ThomasFarss&show_icons=true&theme=github_dark&hide_border=true&count_private=true" 
-    height="180em"
-  />
-</p>
+## Como rodar
 
-<p align="center">
-  <img 
-    src="https://github-readme-streak-stats.herokuapp.com/?user=ThomasFarss&theme=github-dark&hide_border=true" 
-    height="160em"
-  />
-</p>
+1. Abra o arquivo `public/index.html` diretamente no navegador.
+2. Na primeira execução, o sistema carrega os dados iniciais de `data/seed.json`.
 
-## 🚀 Linguagens que eu programo!
+## Acesso administrativo
 
-<p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="55"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="55"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="55"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="55"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="55"/>
-</p>
+- **URL:** `admin/admin-login.html`
+- **Usuário:** `admin@helplojas.com`
+- **Senha:** `12345678`
 
+## Resetar dados
+
+Para reiniciar o banco local:
+
+1. Abra o DevTools do navegador.
+2. Vá em **Application** > **Local Storage**.
+3. Remova todas as chaves relacionadas à Helpe Lojas (ou execute `localStorage.clear()`).
+4. Recarregue a página para restaurar os dados do `seed.json`.
+
+## Estrutura de pastas
+
+```
+/public           # Páginas públicas da loja
+/admin            # Páginas administrativas
+/assets/css       # Estilos base, componentes, layouts
+/assets/js        # Lógica de dados, autenticação e UI
+/assets/img       # Imagens e placeholders
+/data/seed.json   # Dados iniciais
+```
+
+## Observações
+
+- O projeto inclui modo claro/escuro.
+- O checkout é simulado (Pix/Cartão apenas em UI).
+- Todo o fluxo funciona sem backend.

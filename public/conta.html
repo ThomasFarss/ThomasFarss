@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minha conta | Helpe Lojas</title>
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/public.css" />
+  </head>
+  <body data-layout="public" data-page="conta">
+    <div id="navbar"></div>
+
+    <main class="container section">
+      <div class="account-grid">
+        <form id="account-form" class="card">
+          <h2>Dados cadastrais</h2>
+          <div class="form-group">
+            <label>Nome</label>
+            <input class="input" id="account-name" required />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input class="input" id="account-email" type="email" required />
+          </div>
+          <button class="button">Salvar</button>
+        </form>
+        <div>
+          <h2>Histórico de pedidos</h2>
+          <div class="grid" id="orders-history"></div>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer"></div>
+    <script type="module" src="../assets/js/app.js"></script>
+  </body>
+</html>

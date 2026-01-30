@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo | Helpe Lojas</title>
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/public.css" />
+  </head>
+  <body data-layout="public" data-page="categoria">
+    <div id="navbar"></div>
+
+    <main class="container section">
+      <div class="card">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Categoria</label>
+            <select id="category-filter" class="input"></select>
+          </div>
+          <div class="form-group">
+            <label>Busca</label>
+            <input id="category-search" class="input" placeholder="Buscar por nome" />
+          </div>
+          <div class="form-group">
+            <label>Ordenar</label>
+            <select id="category-sort" class="input">
+              <option value="recent">Mais recentes</option>
+              <option value="price-asc">Menor preço</option>
+              <option value="price-desc">Maior preço</option>
+              <option value="sales">Mais vendidos</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="grid grid-3" id="category-list"></div>
+        <div class="section-title" id="pagination"></div>
+      </section>
+    </main>
+
+    <div id="footer"></div>
+    <script type="module" src="../assets/js/app.js"></script>
+  </body>
+</html>

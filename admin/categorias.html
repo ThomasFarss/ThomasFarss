@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Categorias | Admin</title>
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/admin.css" />
+  </head>
+  <body data-page="categorias">
+    <div class="admin-layout">
+      <aside class="sidebar" id="admin-sidebar"></aside>
+      <section class="admin-content">
+        <header class="header-admin">
+          <h1>Categorias</h1>
+          <button class="button secondary" id="admin-logout">Sair</button>
+        </header>
+        <div class="card">
+          <h3>Nova / Editar categoria</h3>
+          <form id="category-form" class="form-row">
+            <input type="hidden" name="id" />
+            <input class="input" name="name" placeholder="Nome" required />
+            <input class="input" name="slug" placeholder="Slug" required />
+            <input class="input" name="order" placeholder="Ordem" type="number" />
+            <input class="input" name="status" placeholder="Status" required />
+            <button class="button">Salvar</button>
+          </form>
+        </div>
+        <section class="section">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Slug</th>
+                <th>Ordem</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="categories-table"></tbody>
+          </table>
+        </section>
+      </section>
+    </div>
+
+    <script type="module" src="../assets/js/app.js"></script>
+  </body>
+</html>

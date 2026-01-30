@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Helpe Lojas</title>
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/admin.css" />
+  </head>
+  <body data-page="dashboard">
+    <div class="admin-layout">
+      <aside class="sidebar" id="admin-sidebar"></aside>
+      <section class="admin-content">
+        <header class="header-admin">
+          <h1>Dashboard</h1>
+          <button class="button secondary" id="admin-logout">Sair</button>
+        </header>
+        <div class="stat-cards">
+          <div class="card">
+            <p>Pedidos do dia</p>
+            <h2 id="stat-orders-today">0</h2>
+          </div>
+          <div class="card">
+            <p>Total do mês</p>
+            <h2 id="stat-orders-month">R$ 0,00</h2>
+          </div>
+          <div class="card">
+            <p>Total de clientes</p>
+            <h2 id="stat-users">0</h2>
+          </div>
+          <div class="card">
+            <p>Produtos ativos</p>
+            <h2 id="stat-products">0</h2>
+          </div>
+        </div>
+        <section class="section">
+          <h2>Status dos pedidos</h2>
+          <div class="chart-bar" id="orders-chart"></div>
+        </section>
+      </section>
+    </div>
+
+    <script type="module" src="../assets/js/app.js"></script>
+  </body>
+</html>

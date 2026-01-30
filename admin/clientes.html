@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clientes | Admin</title>
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/admin.css" />
+  </head>
+  <body data-page="clientes">
+    <div class="admin-layout">
+      <aside class="sidebar" id="admin-sidebar"></aside>
+      <section class="admin-content">
+        <header class="header-admin">
+          <h1>Clientes</h1>
+          <button class="button secondary" id="admin-logout">Sair</button>
+        </header>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Pedidos</th>
+              <th>Histórico</th>
+            </tr>
+          </thead>
+          <tbody id="clients-table"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <script type="module" src="../assets/js/app.js"></script>
+  </body>
+</html>
