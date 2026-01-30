@@ -1,3 +1,10 @@
+<?php
+require_once __DIR__ . '/includes/config.php';
+
+$categories = ['Gift Cards', 'Emuladores', 'Jogos Digitais', 'Outros'];
+$productStmt = $db->query('SELECT * FROM products ORDER BY created_at DESC');
+$products = $productStmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -12,7 +19,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="theme-white">
     <header class="site-header">
       <div class="container nav">
         <div class="logo">
@@ -22,7 +29,7 @@
           <a class="active" href="#">Home</a>
           <a href="#categorias">Loja</a>
           <a href="#sobre">Sobre</a>
-          <a href="#admin">Admin</a>
+          <a href="/admin/login.php">Admin</a>
           <a href="#suporte">Suporte</a>
         </nav>
         <div class="nav__icons">
@@ -101,57 +108,29 @@
         <div class="container">
           <h2 class="section__title">Explore por Categoria</h2>
           <div class="category-grid">
-            <article class="category-card" data-category="Gift Cards">
-              <div class="category-card__icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="4" y="6" width="16" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.5" />
-                  <path d="M7 10h10" fill="none" stroke="currentColor" stroke-width="1.5" />
-                </svg>
-              </div>
-              <h3>Gift Cards</h3>
-            </article>
-            <article class="category-card" data-category="Emuladores">
-              <div class="category-card__icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M7 7h10v10H7z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                  />
-                  <path
-                    d="M4 4h16v4H4z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                  />
-                </svg>
-              </div>
-              <h3>Emuladores</h3>
-            </article>
-            <article class="category-card" data-category="Jogos Digitais">
-              <div class="category-card__icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="5" y="7" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5" />
-                  <circle cx="9" cy="12" r="1" />
-                  <circle cx="15" cy="12" r="1" />
-                </svg>
-              </div>
-              <h3>Jogos Digitais</h3>
-            </article>
-            <article class="category-card" data-category="Outros">
-              <div class="category-card__icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M12 4l2.3 4.8L20 9.7l-4 3.8.9 5.4L12 16.7 7.1 19l.9-5.4-4-3.8 5.7-.9z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.4"
-                  />
-                </svg>
-              </div>
-              <h3>Outros</h3>
-            </article>
+            <?php foreach ($categories as $category): ?>
+              <article class="category-card" data-category="<?= htmlspecialchars($category) ?>">
+                <div class="category-card__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M4 7h16v10H4z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M6 10h12"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <h3><?= htmlspecialchars($category) ?></h3>
+              </article>
+            <?php endforeach; ?>
           </div>
         </div>
       </section>
@@ -162,7 +141,35 @@
             <h2>Produtos em Destaque</h2>
             <a class="section__link" href="#">Ver Tudo →</a>
           </div>
-          <div class="product-grid" id="product-grid"></div>
+          <div class="product-grid" id="product-grid">
+            <?php foreach ($products as $product): ?>
+              <article
+                class="product-card"
+                data-category="<?= htmlspecialchars($product['category']) ?>"
+                data-id="<?= htmlspecialchars($product['id']) ?>"
+                data-name="<?= htmlspecialchars($product['name']) ?>"
+                data-description="<?= htmlspecialchars($product['description']) ?>"
+                data-price="<?= htmlspecialchars($product['price']) ?>"
+              >
+                <?php if (!empty($product['tag'])): ?>
+                  <span class="tag"><?= htmlspecialchars($product['tag']) ?></span>
+                <?php endif; ?>
+                <?php if (!empty($product['discount'])): ?>
+                  <span class="discount">-<?= htmlspecialchars($product['discount']) ?>%</span>
+                <?php endif; ?>
+                <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" />
+                <div class="product-card__body">
+                  <h3><?= htmlspecialchars($product['name']) ?></h3>
+                  <p><?= htmlspecialchars($product['description']) ?></p>
+                  <span class="product-card__price">R$ <?= number_format((float) $product['price'], 2, ',', '.') ?></span>
+                  <div class="product-card__actions">
+                    <button class="add" data-add="<?= htmlspecialchars($product['id']) ?>">Adicionar</button>
+                    <button class="details" data-details="<?= htmlspecialchars($product['id']) ?>">Detalhes</button>
+                  </div>
+                </div>
+              </article>
+            <?php endforeach; ?>
+          </div>
         </div>
       </section>
 
@@ -225,56 +232,6 @@
               <h3>Garantia Total</h3>
               <p>Produtos originais com garantia de funcionamento</p>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section admin" id="admin">
-        <div class="container">
-          <h2 class="section__title">Painel do Administrador</h2>
-          <div class="admin__grid">
-            <form class="admin__form" id="admin-form">
-              <div class="form__group">
-                <label for="product-name">Nome do produto</label>
-                <input id="product-name" name="name" type="text" placeholder="Gift Card Steam R$ 100" required />
-              </div>
-              <div class="form__group">
-                <label for="product-price">Preço (R$)</label>
-                <input id="product-price" name="price" type="number" step="0.01" placeholder="199.90" required />
-              </div>
-              <div class="form__group">
-                <label for="product-category">Categoria</label>
-                <select id="product-category" name="category" required>
-                  <option value="Gift Cards">Gift Cards</option>
-                  <option value="Emuladores">Emuladores</option>
-                  <option value="Jogos Digitais">Jogos Digitais</option>
-                  <option value="Outros">Outros</option>
-                </select>
-              </div>
-              <div class="form__group">
-                <label for="product-image">URL da imagem</label>
-                <input id="product-image" name="image" type="url" placeholder="https://..." required />
-              </div>
-              <div class="form__group">
-                <label for="product-description">Descrição curta</label>
-                <input id="product-description" name="description" type="text" placeholder="Entrega rápida e segura" required />
-              </div>
-              <div class="form__row">
-                <div class="form__group">
-                  <label for="product-tag">Tag</label>
-                  <input id="product-tag" name="tag" type="text" placeholder="Destaque" />
-                </div>
-                <div class="form__group">
-                  <label for="product-discount">Desconto (%)</label>
-                  <input id="product-discount" name="discount" type="number" placeholder="10" min="0" max="90" />
-                </div>
-              </div>
-              <button class="btn btn--primary" type="submit">Adicionar produto</button>
-            </form>
-            <div class="admin__list">
-              <h3>Produtos cadastrados</h3>
-              <div class="admin__items" id="admin-items"></div>
-            </div>
           </div>
         </div>
       </section>
