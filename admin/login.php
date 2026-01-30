@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($user && password_verify($password, $user['password_hash'])) {
         $_SESSION['user_id'] = $user['id'];
-        header('Location: /admin/index.php');
+        header('Location: ' . base_url('admin/index.php'));
         exit();
     }
 
@@ -31,12 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="<?= base_url('styles.css') ?>" />
   </head>
   <body class="theme-white">
     <main class="auth">
       <div class="auth__card">
-        <img src="/logo.svg" alt="Help Loj" class="logo__image" />
+        <img src="<?= base_url('logo.svg') ?>" alt="Help Loj" class="logo__image" />
         <h1>Entrar no Admin</h1>
         <p>Use o usuário padrão <strong>admin</strong> e senha <strong>admin123</strong>.</p>
         <?php if ($error): ?>
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </label>
           <button class="btn btn--primary" type="submit">Entrar</button>
         </form>
-        <a class="auth__back" href="/index.php">← Voltar para loja</a>
+        <a class="auth__back" href="<?= base_url('index.php') ?>">← Voltar para loja</a>
       </div>
     </main>
   </body>

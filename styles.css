@@ -50,6 +50,7 @@ select {
   position: sticky;
   top: 0;
   z-index: 20;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .nav {
@@ -87,6 +88,22 @@ select {
 .nav__links a.active,
 .nav__links a:hover {
   color: var(--accent-dark);
+}
+
+.nav__links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.nav__links a.active::after,
+.nav__links a:hover::after {
+  width: 100%;
 }
 
 .nav__icons {
@@ -183,6 +200,7 @@ select {
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn__icon {
@@ -206,6 +224,11 @@ select {
   background: #c9cacc;
   color: #6c6f73;
   box-shadow: inset 0 0 0 2px #a7aaad;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
 .hero__image {
@@ -239,7 +262,7 @@ select {
 }
 
 .category-card {
-  background: #c6cacf;
+  background: #ffffff;
   border-radius: 12px;
   padding: 22px 18px;
   text-align: center;
@@ -247,6 +270,11 @@ select {
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
   cursor: pointer;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
 .category-card--active {
@@ -303,10 +331,16 @@ select {
   position: relative;
   border-radius: 14px;
   overflow: hidden;
-  background: #ccd0d4;
+  background: #ffffff;
   border: 1px solid #a5aaaf;
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
 }
 
 .product-card img {
@@ -394,7 +428,7 @@ select {
 }
 
 .benefit-card {
-  background: #c7cbcf;
+  background: #ffffff;
   border: 1px solid #a7adb2;
   border-radius: 14px;
   padding: 20px 18px;
@@ -465,6 +499,14 @@ select {
   border-radius: 10px;
   border: 1px solid #a7adb2;
   background: #f1f2f3;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form__group input:focus,
+.form__group select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(212, 106, 58, 0.2);
 }
 
 .form__row {
@@ -515,7 +557,7 @@ select {
 }
 
 .support {
-  background: #f6f7f8;
+  background: #f8f9fb;
 }
 
 .support__content {
@@ -540,6 +582,11 @@ select {
   transform: translateX(110%);
   transition: transform 0.3s ease;
   z-index: 30;
+}
+
+.cart__item button:hover,
+.admin__delete:hover {
+  filter: brightness(0.9);
 }
 
 .cart--open {

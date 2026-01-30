@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':tag' => $tag,
             ':discount' => $discount,
         ]);
-        header('Location: /admin/index.php');
+        header('Location: ' . base_url('admin/index.php'));
         exit();
     }
 }
@@ -36,7 +36,7 @@ if (isset($_GET['delete'])) {
     $deleteId = (int) $_GET['delete'];
     $deleteStmt = $db->prepare('DELETE FROM products WHERE id = :id');
     $deleteStmt->execute([':id' => $deleteId]);
-    header('Location: /admin/index.php');
+    header('Location: ' . base_url('admin/index.php'));
     exit();
 }
 
@@ -55,21 +55,21 @@ $products = $productStmt->fetchAll(PDO::FETCH_ASSOC);
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="<?= base_url('styles.css') ?>" />
   </head>
   <body class="theme-white">
     <header class="site-header">
       <div class="container nav">
         <div class="logo">
-          <img src="/logo.svg" alt="Help Loj" class="logo__image" />
+          <img src="<?= base_url('logo.svg') ?>" alt="Help Loj" class="logo__image" />
         </div>
         <nav class="nav__links">
-          <a href="/index.php">Loja</a>
-          <a class="active" href="/admin/index.php">Painel</a>
+          <a href="<?= base_url('index.php') ?>">Loja</a>
+          <a class="active" href="<?= base_url('admin/index.php') ?>">Painel</a>
         </nav>
         <div class="nav__icons">
           <span class="admin__welcome">Olá, <?= htmlspecialchars($user['username'] ?? 'Admin') ?></span>
-          <a class="btn btn--ghost" href="/admin/logout.php">Sair</a>
+          <a class="btn btn--ghost" href="<?= base_url('admin/logout.php') ?>">Sair</a>
         </div>
       </div>
     </header>
@@ -126,7 +126,7 @@ $products = $productStmt->fetchAll(PDO::FETCH_ASSOC);
                       <span><?= htmlspecialchars($product['name']) ?></span>
                       <div><?= htmlspecialchars($product['category']) ?> • R$ <?= number_format((float) $product['price'], 2, ',', '.') ?></div>
                     </div>
-                    <a class="admin__delete" href="/admin/index.php?delete=<?= (int) $product['id'] ?>">Excluir</a>
+                    <a class="admin__delete" href="<?= base_url('admin/index.php?delete=' . (int) $product['id']) ?>">Excluir</a>
                   </div>
                 <?php endforeach; ?>
                 <?php if (empty($products)): ?>

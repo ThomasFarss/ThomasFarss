@@ -2,6 +2,17 @@
 session_start();
 
 define('APP_DB_PATH', __DIR__ . '/../data/app.db');
+define('APP_BASE_URL', (function () {
+    $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
+    $scriptDir = rtrim($scriptDir, '/');
+    if ($scriptDir === '/') {
+        $scriptDir = '';
+    }
+    if (str_ends_with($scriptDir, '/admin')) {
+        $scriptDir = substr($scriptDir, 0, -6);
+    }
+    return $scriptDir;
+})());
 
 define('APP_DEFAULT_USER', 'admin');
 define('APP_DEFAULT_PASS', 'admin123');
@@ -111,7 +122,7 @@ if ($existingProducts->fetchColumn() == 0) {
 function require_login(): void
 {
     if (empty($_SESSION['user_id'])) {
-        header('Location: /admin/login.php');
+        header('Location: ' . base_url('admin/login.php'));
         exit();
     }
 }
@@ -125,4 +136,17 @@ function current_user(PDO $db): ?array
     $stmt->execute([':id' => $_SESSION['user_id']]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     return $user ?: null;
+}
+
+function base_url(string $path = ''): string
+{
+    $base = APP_BASE_URL;
+    $path = ltrim($path, '/');
+    if ($base === '') {
+        return '/' . $path;
+    }
+    if ($path === '') {
+        return $base;
+    }
+    return $base . '/' . $path;
 }

@@ -17,19 +17,19 @@ $products = $productStmt->fetchAll(PDO::FETCH_ASSOC);
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="<?= base_url('styles.css') ?>" />
   </head>
   <body class="theme-white">
     <header class="site-header">
       <div class="container nav">
         <div class="logo">
-          <img src="logo.svg" alt="Help Loj" class="logo__image" />
+          <img src="<?= base_url('logo.svg') ?>" alt="Help Loj" class="logo__image" />
         </div>
         <nav class="nav__links">
           <a class="active" href="#">Home</a>
           <a href="#categorias">Loja</a>
           <a href="#sobre">Sobre</a>
-          <a href="/admin/login.php">Admin</a>
+          <a href="<?= base_url('admin/login.php') ?>">Admin</a>
           <a href="#suporte">Suporte</a>
         </nav>
         <div class="nav__icons">
@@ -270,7 +270,7 @@ $products = $productStmt->fetchAll(PDO::FETCH_ASSOC);
     <footer class="site-footer">
       <div class="container footer__grid">
         <div class="footer__brand">
-          <img src="logo.svg" alt="Help Loj" class="logo__image logo__image--small" />
+          <img src="<?= base_url('logo.svg') ?>" alt="Help Loj" class="logo__image logo__image--small" />
           <p>Sua loja de produtos digitais gamers. Rápido, seguro e confiável.</p>
         </div>
         <div>
@@ -299,6 +299,6 @@ $products = $productStmt->fetchAll(PDO::FETCH_ASSOC);
       </div>
       <p class="footer__copy">© 2024 Help Loj. Todos os direitos reservados.</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="<?= base_url('script.js') ?>"></script>
   </body>
 </html>
