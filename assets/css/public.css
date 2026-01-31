@@ -3,6 +3,10 @@
   align-items: center;
   gap: 32px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  background: linear-gradient(135deg, rgba(242, 183, 5, 0.12), rgba(31, 27, 46, 0.95));
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(242, 183, 5, 0.2);
 }
 
 .hero img {
@@ -15,6 +19,15 @@
   gap: 8px;
 }
 
+.product-card strong {
+  color: #f7d76b;
+}
+
+.product-card .badge {
+  background: rgba(249, 115, 22, 0.2);
+  color: #f9a826;
+}
+
 .product-card h3 {
   margin: 0;
 }
@@ -24,6 +37,10 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 24px;
+}
+
+.section-title a {
+  color: #f7d76b;
 }
 
 .search-bar {
@@ -63,6 +80,17 @@
   display: grid;
   gap: 24px;
   grid-template-columns: minmax(220px, 280px) 1fr;
+}
+
+.highlight-banner {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.highlight-banner .card {
+  border: 1px solid rgba(242, 183, 5, 0.2);
+  background: rgba(20, 20, 34, 0.9);
 }
 
 @media (max-width: 768px) {

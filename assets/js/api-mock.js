@@ -3,7 +3,6 @@ import { readData, writeData, generateId } from "./storage.js";
 export const getProducts = () => readData("products");
 export const getCategories = () => readData("categories");
 export const getUsers = () => readData("users");
-export const getAdminUsers = () => readData("adminUsers");
 export const getOrders = () => readData("orders");
 export const getCoupons = () => readData("coupons");
 export const getSettings = () => readData("settings", {});

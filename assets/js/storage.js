@@ -1,6 +1,5 @@
 export const STORAGE_KEYS = [
   "users",
-  "adminUsers",
   "products",
   "categories",
   "orders",
@@ -54,14 +53,6 @@ const fallbackSeed = {
       email: "cliente@helplojas.com",
       password: "12345678",
       createdAt: "2024-02-01T10:00:00Z"
-    }
-  ],
-  adminUsers: [
-    {
-      id: "admin-1",
-      name: "Admin Helpe",
-      email: "admin@helplojas.com",
-      password: "12345678"
     }
   ],
   orders: [],

@@ -3,37 +3,7 @@ import { getSettings, getCategories, getProducts, getUsers, getOrders } from "./
 import { addToCart, getCartDetails, updateQuantity, removeFromCart, applyCoupon } from "./carrinho.js";
 import { filterProducts, paginate, renderProductCard, renderCategoryOptions, formatPrice } from "./catalogo.js";
 import { getQueryParams } from "./router.js";
-import {
-  loginUser,
-  logoutUser,
-  guardUserPage,
-  getUserSession,
-  loginAdmin,
-  logoutAdmin,
-  guardAdminPage
-} from "./auth.js";
-import {
-  buildAdminSidebar,
-  setupDashboardPage,
-  setupProductsPage,
-  setupCategoriesPage,
-  setupOrdersPage,
-  setupClientsPage,
-  setupCouponsPage,
-  setupConfigPage
-} from "./admin.js";
-
-const applyTheme = () => {
-  const theme = localStorage.getItem("helpeTheme") || "light";
-  document.documentElement.setAttribute("data-theme", theme);
-};
-
-const toggleTheme = () => {
-  const current = document.documentElement.getAttribute("data-theme") || "light";
-  const next = current === "light" ? "dark" : "light";
-  document.documentElement.setAttribute("data-theme", next);
-  localStorage.setItem("helpeTheme", next);
-};
+import { loginUser, logoutUser, guardUserPage, getUserSession } from "./auth.js";
 
 const applyBranding = () => {
   const settings = getSettings();
@@ -51,19 +21,25 @@ const renderNavbar = () => {
   const cart = getCartDetails();
 
   nav.innerHTML = `
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <span>Entrega digital imediata • Suporte 24/7</span>
+        <span class="badge">PIX com desconto</span>
+      </div>
+    </div>
     <nav class="navbar">
       <div class="container nav-inner">
-        <div class="nav-links">
+        <div class="brand">
           <a href="index.html"><strong>Helpe Lojas</strong></a>
-          <a href="categoria.html">Categorias</a>
-          <a href="conta.html">Minha conta</a>
+          <small>Gift cards e produtos digitais</small>
         </div>
         <div class="search-bar">
-          <input class="input" id="nav-search" placeholder="Buscar produtos">
+          <input class="input" id="nav-search" placeholder="Buscar produtos, cartões, assinaturas">
           <button class="button" id="nav-search-btn">Buscar</button>
         </div>
         <div class="nav-actions">
-          <button class="button outline" id="toggle-theme">Modo</button>
+          <a href="categoria.html">Categorias</a>
+          <a href="conta.html">Minha conta</a>
           <a href="carrinho.html">Carrinho <span class="badge-counter" id="cart-count">${
             cart.items.length
           }</span></a>
@@ -76,8 +52,6 @@ const renderNavbar = () => {
       </div>
     </nav>
   `;
-
-  nav.querySelector("#toggle-theme").addEventListener("click", toggleTheme);
   const logoutBtn = nav.querySelector("#logout-btn");
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
@@ -426,34 +400,6 @@ const setupAccountPage = () => {
     .join("") || `<p class="text-muted">Nenhum pedido encontrado.</p>`;
 };
 
-const setupAdminLoginPage = () => {
-  const form = document.querySelector("#admin-login-form");
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const data = Object.fromEntries(new FormData(form).entries());
-    const admin = loginAdmin(data.email, data.password);
-    if (!admin) {
-      alert("Credenciais inválidas.");
-      return;
-    }
-    window.location.href = "dashboard.html";
-  });
-};
-
-const setupAdminLayout = () => {
-  const sidebar = document.querySelector("#admin-sidebar");
-  const active = document.body.dataset.page;
-  sidebar.innerHTML = buildAdminSidebar(active);
-
-  const logoutBtn = document.querySelector("#admin-logout");
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", () => {
-      logoutAdmin();
-      window.location.href = "admin-login.html";
-    });
-  }
-};
-
 const setupPage = () => {
   const page = document.body.dataset.page;
   if (document.body.dataset.layout === "public") {
@@ -487,44 +433,6 @@ const setupPage = () => {
     case "conta":
       setupAccountPage();
       break;
-    case "admin-login":
-      setupAdminLoginPage();
-      break;
-    case "dashboard":
-      guardAdminPage();
-      setupAdminLayout();
-      setupDashboardPage();
-      break;
-    case "produtos":
-      guardAdminPage();
-      setupAdminLayout();
-      setupProductsPage();
-      break;
-    case "categorias":
-      guardAdminPage();
-      setupAdminLayout();
-      setupCategoriesPage();
-      break;
-    case "pedidos":
-      guardAdminPage();
-      setupAdminLayout();
-      setupOrdersPage();
-      break;
-    case "clientes":
-      guardAdminPage();
-      setupAdminLayout();
-      setupClientsPage();
-      break;
-    case "cupons":
-      guardAdminPage();
-      setupAdminLayout();
-      setupCouponsPage();
-      break;
-    case "config":
-      guardAdminPage();
-      setupAdminLayout();
-      setupConfigPage();
-      break;
     default:
       break;
   }
@@ -532,7 +440,6 @@ const setupPage = () => {
 
 const bootstrap = async () => {
   await initStorage();
-  applyTheme();
   applyBranding();
   setupPage();
 };

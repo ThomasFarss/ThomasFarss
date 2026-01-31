@@ -7,12 +7,6 @@ Projeto front-end completo para a **Helpe Lojas**, focado em produtos digitais c
 1. Abra o arquivo `public/index.html` diretamente no navegador.
 2. Na primeira execução, o sistema carrega os dados iniciais de `data/seed.json`.
 
-## Acesso administrativo
-
-- **URL:** `admin/admin-login.html`
-- **Usuário:** `admin@helplojas.com`
-- **Senha:** `12345678`
-
 ## Resetar dados
 
 Para reiniciar o banco local:
@@ -26,7 +20,6 @@ Para reiniciar o banco local:
 
 ```
 /public           # Páginas públicas da loja
-/admin            # Páginas administrativas
 /assets/css       # Estilos base, componentes, layouts
 /assets/js        # Lógica de dados, autenticação e UI
 /assets/img       # Imagens e placeholders
@@ -35,6 +28,6 @@ Para reiniciar o banco local:
 
 ## Observações
 
-- O projeto inclui modo claro/escuro.
+- O layout foi ajustado para um visual escuro e premium.
 - O checkout é simulado (Pix/Cartão apenas em UI).
 - Todo o fluxo funciona sem backend.
