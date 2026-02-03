@@ -5,10 +5,75 @@ const affiliateTable = document.querySelector("#affiliateTable tbody");
 const adForm = document.getElementById("adForm");
 const affiliateForm = document.getElementById("affiliateForm");
 const discountForm = document.getElementById("discountForm");
+const loginForm = document.getElementById("loginForm");
 
 const adNotice = document.getElementById("adNotice");
 const affiliateNotice = document.getElementById("affiliateNotice");
 const discountNotice = document.getElementById("discountNotice");
+const loginNotice = document.getElementById("loginNotice");
+const personalizationBanner = document.getElementById("personalizationBanner");
+const userArea = document.getElementById("userArea");
+
+function getStoredUser() {
+  const raw = localStorage.getItem("dreamsliveUser");
+  return raw ? JSON.parse(raw) : null;
+}
+
+function setStoredUser(user) {
+  localStorage.setItem("dreamsliveUser", JSON.stringify(user));
+}
+
+function clearStoredUser() {
+  localStorage.removeItem("dreamsliveUser");
+}
+
+function renderUserArea() {
+  if (!userArea) return;
+  const user = getStoredUser();
+  if (!user) {
+    userArea.innerHTML = `<span class="user-chip">Olá, visitante</span>`;
+    return;
+  }
+
+  const tierLabel = user.tier === "gold" ? "Gold" : user.tier === "prata" ? "Prata" : "Free";
+  userArea.innerHTML = `
+    <span class="user-chip">Olá, ${user.name}</span>
+    <span class="user-chip user-tier">${tierLabel}</span>
+    <button class="ghost-button" id="logoutBtn">Sair</button>
+  `;
+
+  const logoutBtn = document.getElementById("logoutBtn");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+      clearStoredUser();
+      renderUserArea();
+      if (personalizationBanner) {
+        personalizationBanner.style.display = "none";
+      }
+    });
+  }
+}
+
+function renderPersonalization() {
+  if (!personalizationBanner) return;
+  const user = getStoredUser();
+  if (!user) {
+    personalizationBanner.style.display = "none";
+    return;
+  }
+
+  const discountText =
+    user.tier === "gold"
+      ? "Você tem 8% de desconto nas ofertas premium."
+      : user.tier === "prata"
+      ? "Você tem 5% de desconto nas ofertas selecionadas."
+      : "Cadastre-se nos planos pagos para liberar descontos.";
+
+  personalizationBanner.innerHTML = `
+    <strong>Experiência personalizada:</strong> ${discountText}
+  `;
+  personalizationBanner.style.display = "block";
+}
 
 async function loadAds() {
   if (!adsGrid && !externalAdsGrid) return;
@@ -149,5 +214,37 @@ if (discountForm) {
   });
 }
 
+if (loginForm) {
+  loginForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    loginNotice.style.display = "none";
+
+    const formData = new FormData(loginForm);
+    const payload = Object.fromEntries(formData.entries());
+
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      loginNotice.textContent = data.error;
+      loginNotice.style.display = "block";
+      return;
+    }
+
+    setStoredUser(data);
+    loginNotice.textContent = `Login realizado! Bem-vindo(a), ${data.name}.`;
+    loginNotice.style.display = "block";
+    loginForm.reset();
+    renderUserArea();
+    renderPersonalization();
+  });
+}
+
 loadAds();
 loadAffiliates();
+renderUserArea();
+renderPersonalization();

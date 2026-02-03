@@ -77,6 +77,30 @@ const discounts = {
   gold: 8
 };
 
+const users = [
+  {
+    id: 1,
+    name: "Thiago Ramos",
+    email: "prata@dreamslive.com",
+    password: "prata123",
+    tier: "prata"
+  },
+  {
+    id: 2,
+    name: "Camila Andrade",
+    email: "gold@dreamslive.com",
+    password: "gold123",
+    tier: "gold"
+  },
+  {
+    id: 3,
+    name: "Visitante",
+    email: "free@dreamslive.com",
+    password: "free123",
+    tier: "free"
+  }
+];
+
 app.get("/api/ads", (req, res) => {
   res.json({ ads, externalAds });
 });
@@ -126,6 +150,24 @@ app.get("/api/discount", (req, res) => {
     return res.status(404).json({ error: "Nível não encontrado." });
   }
   res.json({ tier, discount });
+});
+
+app.post("/api/login", (req, res) => {
+  const { email, password } = req.body;
+  const user = users.find(
+    (item) => item.email === email && item.password === password
+  );
+
+  if (!user) {
+    return res.status(401).json({ error: "Credenciais inválidas." });
+  }
+
+  res.json({
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    tier: user.tier
+  });
 });
 
 app.listen(PORT, () => {

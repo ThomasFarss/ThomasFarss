@@ -54,6 +54,37 @@ header {
   flex-wrap: wrap;
 }
 
+.user-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: var(--white);
+}
+
+.user-chip {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #1d1d1d;
+  border: 1px solid #2a2a2a;
+  font-size: 0.9rem;
+}
+
+.user-tier {
+  background: var(--red);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.ghost-button {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--yellow);
+  color: var(--yellow);
+  background: transparent;
+  cursor: pointer;
+}
+
 .nav-links a {
   padding: 6px 12px;
   border-radius: 999px;
@@ -219,6 +250,26 @@ header {
   border-radius: 14px;
   color: #fef0b2;
   margin-top: 16px;
+}
+
+.personalization {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(229, 9, 20, 0.12);
+  border: 1px solid rgba(229, 9, 20, 0.4);
+}
+
+.list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.list li::before {
+  content: "🦊";
+  margin-right: 8px;
 }
 
 .table {
