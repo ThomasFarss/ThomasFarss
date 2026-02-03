@@ -230,6 +230,17 @@ header {
   height: 100%;
 }
 
+.fox-headset {
+  background: radial-gradient(circle at top, rgba(246, 195, 67, 0.25), transparent 60%);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.fox-small {
+  width: 140px;
+  height: 140px;
+}
+
 .tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -287,6 +298,141 @@ header {
 
 .table th {
   color: var(--yellow);
+}
+
+.dashboard-body {
+  background: #0d0d0d;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+  padding: 32px 8% 60px;
+}
+
+.dashboard-sidebar {
+  background: #121212;
+  border: 1px solid #222;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 600px;
+}
+
+.dashboard-avatar {
+  text-align: center;
+}
+
+.dashboard-avatar h3 {
+  margin-top: 12px;
+  color: var(--yellow);
+}
+
+.dashboard-avatar p {
+  color: #bdbdbd;
+}
+
+.dashboard-menu {
+  display: grid;
+  gap: 12px;
+}
+
+.dashboard-menu a {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  color: #cfcfcf;
+}
+
+.dashboard-menu a.active,
+.dashboard-menu a:hover {
+  border-color: var(--red);
+  color: var(--white);
+  background: rgba(229, 9, 20, 0.15);
+}
+
+.dashboard-content {
+  display: grid;
+  gap: 24px;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+}
+
+.dashboard-stats {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.stat-card {
+  background: #151515;
+  border: 1px solid #222;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.stat-card h4 {
+  color: #f1f1f1;
+  margin-bottom: 8px;
+}
+
+.stat-card p {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--yellow);
+}
+
+.stat-card span {
+  font-size: 0.85rem;
+  color: #bdbdbd;
+}
+
+.stat-card.accent {
+  border-color: #f6c343;
+}
+
+.stat-card.warning {
+  border-color: #f97316;
+}
+
+.stat-card.dark {
+  border-color: #b91c7b;
+  background: #101010;
+}
+
+.dashboard-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.pill.warning {
+  background: rgba(249, 115, 22, 0.2);
+  color: #fdba74;
+}
+
+.pill.success {
+  background: rgba(34, 197, 94, 0.2);
+  color: #86efac;
 }
 
 .diagram {
@@ -414,5 +560,9 @@ header {
 
   .diagram-arrows {
     display: none;
+  }
+
+  .dashboard {
+    grid-template-columns: 1fr;
   }
 }
