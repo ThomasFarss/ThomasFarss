@@ -13,6 +13,7 @@ const discountNotice = document.getElementById("discountNotice");
 const loginNotice = document.getElementById("loginNotice");
 const personalizationBanner = document.getElementById("personalizationBanner");
 const userArea = document.getElementById("userArea");
+const sellerNotice = document.getElementById("sellerNotice");
 
 function getStoredUser() {
   const raw = localStorage.getItem("dreamsliveUser");
@@ -73,6 +74,24 @@ function renderPersonalization() {
     <strong>Experiência personalizada:</strong> ${discountText}
   `;
   personalizationBanner.style.display = "block";
+}
+
+function enforceSellerAuth() {
+  if (!sellerNotice) return;
+  const user = getStoredUser();
+  if (!user) {
+    sellerNotice.textContent =
+      "Área do Vendedor protegida: faça login para acessar o painel privado.";
+    sellerNotice.style.display = "block";
+    setTimeout(() => {
+      window.location.href = "login.html";
+    }, 1200);
+    return;
+  }
+
+  sellerNotice.textContent =
+    "Acesso liberado. Você está no ambiente privado do anunciante.";
+  sellerNotice.style.display = "block";
 }
 
 async function loadAds() {
@@ -248,3 +267,4 @@ loadAds();
 loadAffiliates();
 renderUserArea();
 renderPersonalization();
+enforceSellerAuth();
