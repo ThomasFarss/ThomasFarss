@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrinho | Helpe Lojas</title>
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/public.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/public.css" />
+  </head>
+  <body data-layout="public" data-page="carrinho">
+    <div id="navbar"></div>
+
+    <main class="container section">
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+        <div id="cart-items"></div>
+        <div>
+          <form id="coupon-form" class="card" style="margin-bottom: 16px;">
+            <h3>Aplicar cupom</h3>
+            <input class="input" placeholder="Digite o código" required />
+            <button class="button" style="margin-top: 12px;">Aplicar</button>
+          </form>
+          <div id="cart-summary"></div>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer"></div>
+    <script type="module" src="../assets/js/app.js"></script>
+  </body>
+</html>
