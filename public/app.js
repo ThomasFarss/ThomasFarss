@@ -1,0 +1,270 @@
+const adsGrid = document.getElementById("adsGrid");
+const externalAdsGrid = document.getElementById("externalAdsGrid");
+const affiliateTable = document.querySelector("#affiliateTable tbody");
+
+const adForm = document.getElementById("adForm");
+const affiliateForm = document.getElementById("affiliateForm");
+const discountForm = document.getElementById("discountForm");
+const loginForm = document.getElementById("loginForm");
+
+const adNotice = document.getElementById("adNotice");
+const affiliateNotice = document.getElementById("affiliateNotice");
+const discountNotice = document.getElementById("discountNotice");
+const loginNotice = document.getElementById("loginNotice");
+const personalizationBanner = document.getElementById("personalizationBanner");
+const userArea = document.getElementById("userArea");
+const sellerNotice = document.getElementById("sellerNotice");
+
+function getStoredUser() {
+  const raw = localStorage.getItem("dreamsliveUser");
+  return raw ? JSON.parse(raw) : null;
+}
+
+function setStoredUser(user) {
+  localStorage.setItem("dreamsliveUser", JSON.stringify(user));
+}
+
+function clearStoredUser() {
+  localStorage.removeItem("dreamsliveUser");
+}
+
+function renderUserArea() {
+  if (!userArea) return;
+  const user = getStoredUser();
+  if (!user) {
+    userArea.innerHTML = `<span class="user-chip">Olá, visitante</span>`;
+    return;
+  }
+
+  const tierLabel = user.tier === "gold" ? "Gold" : user.tier === "prata" ? "Prata" : "Free";
+  userArea.innerHTML = `
+    <span class="user-chip">Olá, ${user.name}</span>
+    <span class="user-chip user-tier">${tierLabel}</span>
+    <button class="ghost-button" id="logoutBtn">Sair</button>
+  `;
+
+  const logoutBtn = document.getElementById("logoutBtn");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+      clearStoredUser();
+      renderUserArea();
+      if (personalizationBanner) {
+        personalizationBanner.style.display = "none";
+      }
+    });
+  }
+}
+
+function renderPersonalization() {
+  if (!personalizationBanner) return;
+  const user = getStoredUser();
+  if (!user) {
+    personalizationBanner.style.display = "none";
+    return;
+  }
+
+  const discountText =
+    user.tier === "gold"
+      ? "Você tem 8% de desconto nas ofertas premium."
+      : user.tier === "prata"
+      ? "Você tem 5% de desconto nas ofertas selecionadas."
+      : "Cadastre-se nos planos pagos para liberar descontos.";
+
+  personalizationBanner.innerHTML = `
+    <strong>Experiência personalizada:</strong> ${discountText}
+  `;
+  personalizationBanner.style.display = "block";
+}
+
+function enforceSellerAuth() {
+  if (!sellerNotice) return;
+  const user = getStoredUser();
+  if (!user) {
+    sellerNotice.textContent =
+      "Área do Vendedor protegida: faça login para acessar o painel privado.";
+    sellerNotice.style.display = "block";
+    setTimeout(() => {
+      window.location.href = "login.html";
+    }, 1200);
+    return;
+  }
+
+  sellerNotice.textContent =
+    "Acesso liberado. Você está no ambiente privado do anunciante.";
+  sellerNotice.style.display = "block";
+}
+
+async function loadAds() {
+  if (!adsGrid && !externalAdsGrid) return;
+  const response = await fetch("/api/ads");
+  const data = await response.json();
+
+  if (adsGrid) {
+    adsGrid.innerHTML = data.ads
+      .map(
+        (ad) => `
+      <div class="card">
+        <span class="badge">${ad.type}</span>
+        <h3>${ad.title}</h3>
+        <p>${ad.price}</p>
+        <p><strong>Vendedor:</strong> ${ad.seller}</p>
+        <p><strong>Categoria:</strong> ${ad.category}</p>
+      </div>
+    `
+      )
+      .join("");
+  }
+
+  if (externalAdsGrid) {
+    externalAdsGrid.innerHTML = data.externalAds
+      .map(
+        (ad) => `
+      <div class="card">
+        <span class="badge">Externo</span>
+        <h3>${ad.title}</h3>
+        <p><strong>Marca:</strong> ${ad.brand}</p>
+        <p><strong>Meta:</strong> ${ad.goal}</p>
+        <p><strong>Orçamento:</strong> ${ad.budget}</p>
+        <a class="button" href="${ad.url}" target="_blank" rel="noreferrer">Visitar campanha</a>
+      </div>
+    `
+      )
+      .join("");
+  }
+}
+
+async function loadAffiliates() {
+  if (!affiliateTable) return;
+  const response = await fetch("/api/affiliates");
+  const data = await response.json();
+
+  affiliateTable.innerHTML = data.affiliates
+    .map(
+      (item) => `
+    <tr>
+      <td>${item.platform}</td>
+      <td>${item.title}</td>
+      <td><a class="button secondary" href="${item.link}" target="_blank" rel="noreferrer">Abrir</a></td>
+    </tr>
+  `
+    )
+    .join("");
+}
+
+if (adForm) {
+  adForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    adNotice.style.display = "none";
+
+    const formData = new FormData(adForm);
+    const payload = Object.fromEntries(formData.entries());
+
+    const response = await fetch("/api/ads", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      adNotice.textContent = data.error;
+      adNotice.style.display = "block";
+      return;
+    }
+
+    adNotice.textContent = "Anúncio criado com sucesso!";
+    adNotice.style.display = "block";
+    adForm.reset();
+    loadAds();
+  });
+}
+
+if (affiliateForm) {
+  affiliateForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    affiliateNotice.style.display = "none";
+
+    const formData = new FormData(affiliateForm);
+    const payload = Object.fromEntries(formData.entries());
+
+    const response = await fetch("/api/affiliates", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      affiliateNotice.textContent = data.error;
+      affiliateNotice.style.display = "block";
+      return;
+    }
+
+    affiliateNotice.textContent = "Link de afiliado publicado!";
+    affiliateNotice.style.display = "block";
+    affiliateForm.reset();
+    loadAffiliates();
+  });
+}
+
+if (discountForm) {
+  discountForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    discountNotice.style.display = "none";
+
+    const formData = new FormData(discountForm);
+    const tier = formData.get("tier");
+    const price = Number(formData.get("price"));
+
+    const response = await fetch(`/api/discount?tier=${tier}`);
+    const data = await response.json();
+
+    if (!response.ok) {
+      discountNotice.textContent = data.error;
+      discountNotice.style.display = "block";
+      return;
+    }
+
+    const discountValue = (price * data.discount) / 100;
+    const finalPrice = price - discountValue;
+
+    discountNotice.innerHTML = `Você recebeu <strong>${data.discount}%</strong> de desconto. Valor final: <strong>R$ ${finalPrice.toFixed(2)}</strong>.`;
+    discountNotice.style.display = "block";
+  });
+}
+
+if (loginForm) {
+  loginForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    loginNotice.style.display = "none";
+
+    const formData = new FormData(loginForm);
+    const payload = Object.fromEntries(formData.entries());
+
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      loginNotice.textContent = data.error;
+      loginNotice.style.display = "block";
+      return;
+    }
+
+    setStoredUser(data);
+    loginNotice.textContent = `Login realizado! Bem-vindo(a), ${data.name}.`;
+    loginNotice.style.display = "block";
+    loginForm.reset();
+    renderUserArea();
+    renderPersonalization();
+  });
+}
+
+loadAds();
+loadAffiliates();
+renderUserArea();
+renderPersonalization();
+enforceSellerAuth();

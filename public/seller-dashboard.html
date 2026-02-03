@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DreamsLive Shop | Painel do Anunciante</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="dashboard-body">
+    <header>
+      <nav class="navbar">
+        <div class="brand">DreamsLive Shop</div>
+        <div class="nav-links">
+          <a href="index.html">Início</a>
+          <a href="ads.html">Anúncios</a>
+          <a href="advertisers.html">Para Anunciantes</a>
+          <a href="seller-dashboard.html" target="_blank" rel="noreferrer">Área do Vendedor</a>
+          <a href="affiliates.html">Afiliados</a>
+          <a href="pricing.html">Planos & Descontos</a>
+          <a href="login.html">Login</a>
+        </div>
+        <div class="user-area" id="userArea"></div>
+      </nav>
+    </header>
+
+    <main class="dashboard">
+      <aside class="dashboard-sidebar">
+        <div class="dashboard-avatar">
+          <div class="fox fox-headset fox-small">
+            <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="110" cy="120" r="70" fill="#f6c343" />
+              <path d="M40 95 L70 30 L100 95" fill="#e50914" />
+              <path d="M180 95 L150 30 L120 95" fill="#e50914" />
+              <circle cx="85" cy="120" r="12" fill="#0b0b0b" />
+              <circle cx="135" cy="120" r="12" fill="#0b0b0b" />
+              <path d="M95 150 Q110 170 125 150" stroke="#0b0b0b" stroke-width="6" fill="none" />
+              <circle cx="110" cy="140" r="8" fill="#0b0b0b" />
+              <path d="M65 70 Q110 30 155 70" stroke="#0b0b0b" stroke-width="10" fill="none" />
+              <rect x="40" y="90" width="30" height="38" rx="12" fill="#0b0b0b" />
+              <rect x="150" y="90" width="30" height="38" rx="12" fill="#0b0b0b" />
+              <path d="M170 130 Q190 140 195 155" stroke="#f6c343" stroke-width="6" fill="none" />
+              <circle cx="198" cy="160" r="6" fill="#f6c343" />
+            </svg>
+          </div>
+          <h3>Dreams Seller</h3>
+          <p>Modo Anunciante</p>
+        </div>
+        <nav class="dashboard-menu">
+          <a class="active" href="#">Dashboard</a>
+          <a href="#">Meus Produtos</a>
+          <a href="#">Financeiro</a>
+          <a href="#">Configurações</a>
+        </nav>
+      </aside>
+
+      <section class="dashboard-content">
+        <div class="dashboard-header">
+          <div>
+            <h1>Visão Geral da Loja</h1>
+            <p>Resumo do desempenho do mês e status das campanhas.</p>
+          </div>
+          <button class="button">Novo anúncio</button>
+        </div>
+        <div class="notice" id="sellerNotice" style="display: none;"></div>
+
+        <div class="dashboard-stats">
+          <div class="stat-card">
+            <h4>Vendas Totais</h4>
+            <p>R$ 15.450,00</p>
+            <span>+12% em relação ao mês passado</span>
+          </div>
+          <div class="stat-card accent">
+            <h4>Anúncios Ativos</h4>
+            <p>42</p>
+            <span>8 campanhas em destaque</span>
+          </div>
+          <div class="stat-card warning">
+            <h4>Saldo a Liberar</h4>
+            <p>R$ 1.200,00</p>
+            <span>Liberação prevista em 3 dias</span>
+          </div>
+          <div class="stat-card dark">
+            <h4>Taxas da Plataforma</h4>
+            <p>R$ 1.545,00</p>
+            <span>10% sobre vendas confirmadas</span>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="card">
+            <h3>Últimas Vendas</h3>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Produto</th>
+                  <th>Valor</th>
+                  <th>Sua Parte</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mouse Gamer X500</td>
+                  <td>R$ 150,00</td>
+                  <td>R$ 135,00</td>
+                  <td><span class="pill warning">Pendente</span></td>
+                </tr>
+                <tr>
+                  <td>Cadeira Ergonômica DX</td>
+                  <td>R$ 1.200,00</td>
+                  <td>R$ 1.080,00</td>
+                  <td><span class="pill success">Pago</span></td>
+                </tr>
+                <tr>
+                  <td>Headset Elite Pro</td>
+                  <td>R$ 520,00</td>
+                  <td>R$ 468,00</td>
+                  <td><span class="pill success">Pago</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card">
+            <h3>Dicas do assistente</h3>
+            <p>
+              A cyber-raposa recomenda reforçar anúncios em horários de pico e atualizar as fotos
+              dos seus produtos para melhorar conversão.
+            </p>
+            <div class="notice">
+              Campanhas com vídeos têm +18% de conversão no DreamsLive Shop.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">DreamsLive Shop • Painel do anunciante externo.</footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
