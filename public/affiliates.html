@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DreamsLive Shop | Afiliados</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="brand">DreamsLive Shop</div>
+        <div class="nav-links">
+          <a href="index.html">Início</a>
+          <a href="ads.html">Anúncios</a>
+          <a href="advertisers.html">Para Anunciantes</a>
+          <a href="affiliates.html">Afiliados</a>
+          <a href="pricing.html">Planos & Descontos</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section">
+        <h2>Links de afiliado</h2>
+        <p>Central para divulgar links oficiais das principais plataformas.</p>
+        <table class="table" id="affiliateTable">
+          <thead>
+            <tr>
+              <th>Plataforma</th>
+              <th>Descrição</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <h2>Adicionar novo link de afiliado</h2>
+        <div class="card">
+          <form class="form" id="affiliateForm">
+            <input type="text" name="platform" placeholder="Plataforma" required />
+            <input type="text" name="title" placeholder="Descrição da oferta" required />
+            <input type="url" name="link" placeholder="Link de afiliado" required />
+            <button class="button" type="submit">Publicar link</button>
+          </form>
+          <div class="notice" id="affiliateNotice" style="display: none;"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">DreamsLive Shop • Rede de afiliados inteligente.</footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
