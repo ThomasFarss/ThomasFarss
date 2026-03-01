@@ -1,0 +1,23 @@
+<svg width="520" height="150" viewBox="0 0 520 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradCircle" x1="20" y1="15" x2="120" y2="125" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8CCF4D"/>
+      <stop offset="0.45" stop-color="#18B3A2"/>
+      <stop offset="1" stop-color="#0F2F64"/>
+    </linearGradient>
+    <linearGradient id="gradBars" x1="52" y1="78" x2="102" y2="132" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5ED0E6"/>
+      <stop offset="1" stop-color="#1476B4"/>
+    </linearGradient>
+  </defs>
+  <circle cx="78" cy="75" r="55" fill="url(#gradCircle)"/>
+  <path d="M26 97C38 77 50 65 63 52C75 61 87 60 104 46" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M100 49L108 34M100 49L114 53" stroke="#43B879" stroke-width="6" stroke-linecap="round"/>
+  <text x="59" y="53" fill="white" font-size="17" font-family="Arial, sans-serif" font-weight="700">$</text>
+  <rect x="47" y="83" width="12" height="29" rx="2" fill="url(#gradBars)"/>
+  <rect x="64" y="74" width="12" height="38" rx="2" fill="url(#gradBars)"/>
+  <rect x="81" y="66" width="12" height="46" rx="2" fill="url(#gradBars)"/>
+  <text x="145" y="92" font-family="'Segoe UI', Arial, sans-serif" font-size="66" font-weight="700">
+    <tspan fill="#159D9A">My</tspan><tspan fill="#102D67">Finance</tspan>
+  </text>
+</svg>

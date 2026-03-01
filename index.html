@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyFinance Pro</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top-header">
+      <div class="brand">
+        <img id="logoPreview" src="assets/myfinance-logo.svg" alt="Logo" />
+        <h1><span>My</span>Finance</h1>
+      </div>
+
+      <nav class="tabs" aria-label="Navegação">
+        <button class="tab-btn active" data-tab="dashboard">📊 Dashboard</button>
+        <button class="tab-btn" data-tab="relatorio">📄 Relatório</button>
+        <button class="tab-btn" data-tab="historico">🗃️ Histórico</button>
+      </nav>
+
+      <div class="top-actions">
+        <span id="todayLabel" class="today"></span>
+        <button id="exportBtn" class="btn success">📤 Exportar</button>
+        <button id="saveBtn" class="btn teal">💾 Salvar</button>
+      </div>
+    </header>
+
+    <section class="month-bar">
+      <div>
+        <small id="yearLabel"></small>
+        <h2 id="monthLabel"></h2>
+      </div>
+      <div class="month-actions">
+        <button id="prevMonth" class="mini">◀</button>
+        <button id="nextMonth" class="mini">▶</button>
+      </div>
+      <div id="monthList" class="month-list"></div>
+    </section>
+
+    <main class="container">
+      <section class="tab-content active" id="tab-dashboard">
+        <div class="kpi-row" id="kpiRow"></div>
+
+        <div class="mini-cards">
+          <article><span>📌 Despesas Fixas</span><strong id="fixasValor">R$ 0,00</strong></article>
+          <article><span>🔹 Despesas Variáveis</span><strong id="variaveisValor">R$ 0,00</strong></article>
+          <article><span>💳 Fatura Cartão</span><strong id="cartaoValor">R$ 0,00</strong></article>
+          <article><span>🏦 Parcelas Empréstimos</span><strong id="emprestimoMensal">R$ 0,00</strong></article>
+        </div>
+
+        <div class="grid-2">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>💸 Despesas</h3>
+              <button class="btn" id="quickDespesa">+ Nova Despesa</button>
+            </div>
+            <ul id="despesasList" class="table-list"></ul>
+          </section>
+
+          <section class="panel dark">
+            <h3>Saldo Disponível</h3>
+            <p id="saldoHero" class="hero-value">R$ 0,00</p>
+            <div class="bar-line"><span>Receitas</span><strong id="barReceitas">R$ 0,00</strong></div>
+            <div class="bar-line"><span>Despesas</span><strong id="barDespesas">R$ 0,00</strong></div>
+            <div class="bar-line"><span>Fatura CC</span><strong id="barCartao">R$ 0,00</strong></div>
+            <div class="bar-line"><span>Empréstimos</span><strong id="barEmprestimo">R$ 0,00</strong></div>
+          </section>
+        </div>
+
+        <div class="grid-2">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>🏦 Empréstimos & Financiamentos</h3>
+              <button class="btn" id="quickLoan">+ Novo</button>
+            </div>
+            <ul id="loanList" class="table-list"></ul>
+          </section>
+
+          <section class="panel success-panel">
+            <div class="panel-head">
+              <h3>💚 Receitas</h3>
+              <button class="btn" id="quickReceita">+ Nova Receita</button>
+            </div>
+            <ul id="receitasList" class="table-list"></ul>
+          </section>
+        </div>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h3>💳 Cartão de Crédito</h3>
+            <button class="btn" id="quickCartao">+ Lançar</button>
+          </div>
+          <ul id="cartaoList" class="table-list"></ul>
+        </section>
+      </section>
+
+      <section class="tab-content" id="tab-relatorio">
+        <div class="grid-2">
+          <section class="panel">
+            <h3>📊 Resumo Financeiro — <span id="reportMonthLabel"></span></h3>
+            <ul id="reportSummary" class="summary-list"></ul>
+          </section>
+          <section class="panel">
+            <h3>🏦 Situação dos Empréstimos</h3>
+            <ul id="reportLoans" class="summary-list"></ul>
+          </section>
+        </div>
+
+        <div class="grid-2">
+          <section class="panel">
+            <h3>💳 Detalhes do Cartão</h3>
+            <ul id="reportCard" class="summary-list"></ul>
+          </section>
+          <section class="panel">
+            <h3>💡 Análise & Dicas</h3>
+            <p id="reportTips" class="tips"></p>
+          </section>
+        </div>
+      </section>
+
+      <section class="tab-content" id="tab-historico">
+        <section class="panel">
+          <div class="panel-head">
+            <h3>🗓️ Histórico Mensal — <span id="historyYear"></span></h3>
+            <div class="month-actions">
+              <button id="prevYear" class="mini">◀ Ano anterior</button>
+              <button id="nextYear" class="mini">Próximo ▶</button>
+            </div>
+          </div>
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Mês</th><th>Receitas</th><th>Despesas</th><th>Fatura CC</th><th>Parcelas Emp.</th><th>Saldo</th>
+              </tr>
+            </thead>
+            <tbody id="historyBody"></tbody>
+            <tfoot id="historyFoot"></tfoot>
+          </table>
+        </section>
+      </section>
+
+      <section class="panel config-panel">
+        <h3>⚙️ Configurações rápidas</h3>
+        <div class="config-actions">
+          <label class="btn">Trocar logo <input id="logoInput" type="file" accept="image/*" hidden /></label>
+          <button id="resetLogoBtn" class="btn">Usar logo MyFinance</button>
+          <label class="btn">Importar backup <input id="importInput" type="file" accept="application/json" hidden /></label>
+          <button id="clearBtn" class="btn danger">Limpar tudo</button>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="entryDialog">
+      <form method="dialog" id="entryForm" class="dialog-form">
+        <h3 id="dialogTitle">Novo lançamento</h3>
+        <select id="entryTipo" required>
+          <option value="entrada">Receita</option>
+          <option value="fixa">Despesa fixa</option>
+          <option value="variavel">Despesa variável</option>
+          <option value="cartao">Fatura cartão</option>
+        </select>
+        <input id="entryDesc" type="text" placeholder="Descrição" required />
+        <input id="entryValor" type="number" step="0.01" min="0" placeholder="Valor" required />
+        <div class="dialog-actions">
+          <button value="cancel" class="btn">Cancelar</button>
+          <button value="default" class="btn success" type="submit">Salvar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="loanDialog">
+      <form method="dialog" id="loanForm" class="dialog-form">
+        <h3>Novo empréstimo</h3>
+        <input id="loanNome" type="text" placeholder="Descrição" required />
+        <input id="loanCredor" type="text" placeholder="Banco / credor" required />
+        <input id="loanTotalParc" type="number" min="1" placeholder="Total parcelas" required />
+        <input id="loanPagas" type="number" min="0" placeholder="Parcelas pagas" required />
+        <input id="loanValorParc" type="number" min="0" step="0.01" placeholder="Parcela mensal" required />
+        <div class="dialog-actions">
+          <button value="cancel" class="btn">Cancelar</button>
+          <button value="default" class="btn success" type="submit">Salvar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
