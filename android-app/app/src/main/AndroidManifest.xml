@@ -1,0 +1,36 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_app_logo"
+        android:label="GameVault"
+        android:roundIcon="@mipmap/ic_app_logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GameVault">
+        <activity android:name=".activities.UserDownloadsActivity" />
+        <activity android:name=".activities.PermissionMonitorActivity" />
+        <activity android:name=".activities.GroupManagementActivity" />
+        <activity android:name=".activities.UserManagementActivity" />
+        <activity android:name=".activities.AdminPanelActivity" />
+        <activity android:name=".activities.ProfileActivity" />
+        <activity android:name=".activities.PrivateAccessActivity" />
+        <activity android:name=".activities.EditGameFolderActivity" />
+        <activity android:name=".activities.CreateGameFolderActivity" />
+        <activity android:name=".activities.GameDetailActivity" />
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.ForgotPasswordActivity" />
+        <activity android:name=".activities.RegisterActivity" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity
+            android:name=".activities.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

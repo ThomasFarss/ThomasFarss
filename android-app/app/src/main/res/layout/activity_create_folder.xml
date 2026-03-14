@@ -1,0 +1,13 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp" android:orientation="vertical">
+        <EditText android:id="@+id/editGameName" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nome do jogo"/>
+        <EditText android:id="@+id/editDescription" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Descrição"/>
+        <EditText android:id="@+id/editCategory" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Categoria"/>
+        <EditText android:id="@+id/editCoverUrl" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="URL da capa"/>
+        <EditText android:id="@+id/editFileSize" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Tamanho"/>
+        <EditText android:id="@+id/editDownloadLink" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Link de download"/>
+        <Spinner android:id="@+id/spinnerAccessType" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/editFolderPassword" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Senha da pasta (se privada)"/>
+        <Button android:id="@+id/buttonSaveFolder" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Salvar pasta"/>
+    </LinearLayout>
+</ScrollView>

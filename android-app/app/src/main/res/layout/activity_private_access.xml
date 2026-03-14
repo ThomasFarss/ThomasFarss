@@ -1,0 +1,4 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="24dp" android:orientation="vertical">
+    <EditText android:id="@+id/editAccessPassword" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Digite a senha" android:inputType="textPassword"/>
+    <Button android:id="@+id/buttonValidateAccess" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Validar"/>
+</LinearLayout>

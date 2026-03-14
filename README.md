@@ -92,3 +92,7 @@ Arquivo `public/.htaccess`:
 - Limitar tamanho máximo de upload no `php.ini`.
 - Implementar exclusão física de arquivos removidos.
 - Integrar envio real de e-mail para recuperação de senha.
+
+## Novo módulo Android (Java)
+
+Foi adicionado um projeto Android Studio em `android-app/` com autenticação Firebase, gerenciamento de pastas de jogos e painel administrativo inicial.

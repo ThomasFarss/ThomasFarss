@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">GameVault</string>
+    <string name="invalid_email">E-mail inválido</string>
+    <string name="invalid_password">Senha deve conter ao menos 6 caracteres</string>
+    <string name="required_field">Campo obrigatório</string>
+    <string name="register_success">Cadastro realizado com sucesso</string>
+    <string name="reset_sent">E-mail de recuperação enviado</string>
+    <string name="folder_saved">Pasta salva com sucesso</string>
+    <string name="invalid_folder_password">Senha da pasta incorreta</string>
+    <string name="admin_only_area">Área exclusiva do administrador</string>
+    <string name="group_saved">Grupo salvo com sucesso</string>
+    <string name="total_users">Usuários cadastrados: %1$d</string>
+    <string name="total_downloads">Total de downloads monitorados: %1$d</string>
+    <string name="my_download_count">Meus downloads: %1$d</string>
+    <string name="by_owner">Criado por %1$s</string>
+</resources>
