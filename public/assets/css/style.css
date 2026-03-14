@@ -1,0 +1,10 @@
+body { background: #f5f7fb; }
+.card-cover { height: 180px; object-fit: cover; }
+.hero {
+  background: linear-gradient(90deg,#111827,#1f2937);
+  color: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+}
+.status-pill { font-size: 0.75rem; }
+.table-responsive { border-radius: 12px; overflow: hidden; }
