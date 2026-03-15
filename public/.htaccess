@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /ThomasFarss/public/
+
+RewriteRule ^p/([a-zA-Z0-9-]+)/?$ folder.php?slug=$1 [L,QSA]
+RewriteRule ^download/([0-9]+)/?$ download.php?id=$1 [L,QSA]

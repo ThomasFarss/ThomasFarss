@@ -1,0 +1,13 @@
+# Binary artifacts
+*.zip
+*.rar
+*.7z
+*.exe
+*.iso
+*.apk
+
+# Uploaded content (keep folders)
+uploads/files/*
+uploads/covers/*
+!uploads/files/.gitkeep
+!uploads/covers/.gitkeep
