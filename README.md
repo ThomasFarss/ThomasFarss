@@ -1,56 +1,80 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1a0b2e,100:0d1117&height=280&section=header&text=THOMAS%20FARIAS&fontSize=60&fontColor=FF1E1E&animation=twinkling&fontAlignY=35&desc=%3E%20Player%20Level%20Up%20...%20Loading%20Dev%20Skills&descAlignY=55&descAlign=50&descSize=20&descColor=8B0000&fontFamily=monospace"/>
-
-<br>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,35:2b0000,70:1a0b2e,100:0d1117&height=280&section=header&text=THOMAS%20FARIAS&fontSize=60&fontColor=FF1E1E&animation=twinkling&fontAlignY=35&desc=%3E%20Player%20Level%20Up%20...%20Loading%20Dev%20Skills&descAlignY=55&descAlign=50&descSize=20&descColor=e0e0e0&fontFamily=monospace"/>
 
 <img src="https://readme-typing-svg.demolab.com/?lines=%3E+INSERT+COIN+TO+CONTINUE...+%F0%9F%8E%AE;Player%3A+Thomas+Farias+%7C+Class%3A+Dev+em+treinamento+%E2%9A%94%EF%B8%8F;Estudante+de+ADS+na+Uninter+%F0%9F%8E%93;Farmando+XP+em+C%C3%B3digo+todos+os+dias+%F0%9F%92%BB;Achievement+Unlocked%3A+Sempre+Aprendendo+%F0%9F%8F%86&font=Fira%20Code&center=true&width=650&height=50&color=FF1E1E&vCenter=true&size=23&pause=1400&background=0D111700" />
 
-<br><br>
+<br>
 
 <img src="https://img.shields.io/badge/STATUS-ONLINE%20%F0%9F%9F%A2-0d1117?style=for-the-badge&labelColor=0d1117&color=FF1E1E" />
 <img src="https://img.shields.io/badge/CLASSE-Full--Stack%20Dev%20(em%20treino)-0d1117?style=for-the-badge&labelColor=0d1117&color=8B0000" />
 <img src="https://img.shields.io/badge/SERVIDOR-Brasil%20%F0%9F%87%A7%F0%9F%87%B7-0d1117?style=for-the-badge&labelColor=0d1117&color=B22222" />
 
+<br><br>
+
+<a href="#-player-card">
+  <img src="https://img.shields.io/badge/🎮_PLAYER_CARD-0d1117?style=flat-square&color=1a0000" />
+</a>
+<a href="#%EF%B8%8F-inventário-de-tecnologias">
+  <img src="https://img.shields.io/badge/🕹️_SKILL_TREE-0d1117?style=flat-square&color=1a0000" />
+</a>
+<a href="#-painel-de-stats-github">
+  <img src="https://img.shields.io/badge/📊_STATS-0d1117?style=flat-square&color=1a0000" />
+</a>
+<a href="#-multiplayer--como-me-encontrar">
+  <img src="https://img.shields.io/badge/📡_CONTATO-0d1117?style=flat-square&color=1a0000" />
+</a>
+
 </div>
 
-<br>
-
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%">
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:B22222,50:0d1117,100:B22222&height=3&section=header&width=100%25"/>
 
 ## 🎮 Player Card
 
-<div align="center">
+<table align="center">
+<tr>
+<td valign="top" width="55%">
 
 | ⚔️ Atributo | 📋 Valor |
-|:---:|:---:|
+|:---|:---|
 | **Nome do Jogador** | Thomas Farias |
-| **Guilda / Formação** | Análise e Desenvolvimento de Sistemas — Uninter |
+| **Guilda / Formação** | ADS — Uninter |
 | **Missão Atual** | Evoluir como dev Full-Stack |
 | **Arma Principal** | Código limpo & café ☕ |
-| **Modo de Jogo** | Aprendizado contínuo (sem fim) |
+| **Modo de Jogo** | Aprendizado contínuo (∞) |
 | **Perks** | Curiosidade nível MAX 🔥 |
 
-</div>
+</td>
+<td valign="top" width="45%">
 
 ```yaml
 player:
   nome: Thomas Farias
   classe: Estudante de ADS @ Uninter
-  foco_atual: Desenvolvimento Web & Programação
+  foco_atual: Dev Web & Programação
   objetivo_final: "Full-Stack Developer"
-  inventario: [código, tecnologia, vontade de aprender]
-  status_efeito: "+10 curiosidade, +5 persistência"
+  inventario:
+    - código
+    - tecnologia
+    - vontade de aprender
+  status_efeito: "+10 curiosidade
+                  +5 persistência"
 ```
 
-- 🔭 **Quest ativa:** estudando Análise e Desenvolvimento de Sistemas na **Uninter**
-- 🕹️ **Skill tree:** as linguagens e tecnologias logo abaixo
-- 🌱 **Farmando XP** todos os dias em programação
-- ⚡ **Passiva:** curiosidade nata, gosto de resolver bugs como quem zera boss
-- 🤝 **Co-op:** aberto a colaborações e projetos em equipe
-- 📫 **Chat aberto:** fique à vontade pra mandar mensagem
+</td>
+</tr>
+</table>
+
+<div align="center">
+
+🔭 **Quest ativa** · estudando ADS na **Uninter**&nbsp; | &nbsp;🕹️ **Skill tree** · abaixo&nbsp; | &nbsp;🌱 **Farmando XP** todo dia
+⚡ **Passiva:** resolvo bug como quem zera boss&nbsp; | &nbsp;🤝 **Co-op:** aberto a squads e projetos&nbsp; | &nbsp;📫 **Chat aberto**
+
+</div>
 
 <br>
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:B22222,50:0d1117,100:B22222&height=3&section=header&width=100%25"/>
 
 ## 🕹️ Inventário de Tecnologias
 
@@ -70,28 +94,45 @@ player:
 
 <br>
 
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%">
+**📈 Barra de XP por skill**
+
+<div align="center">
+
+`JavaScript` &nbsp; ![](https://progress-bar.xyz/75/?title=&width=220&color=ff1e1e&suffix=%25)
+`TypeScript` &nbsp; ![](https://progress-bar.xyz/65/?title=&width=220&color=ff1e1e&suffix=%25)
+`Python` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](https://progress-bar.xyz/60/?title=&width=220&color=ff1e1e&suffix=%25)
+`Java` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](https://progress-bar.xyz/55/?title=&width=220&color=8b0000&suffix=%25)
+`PHP` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](https://progress-bar.xyz/50/?title=&width=220&color=8b0000&suffix=%25)
+
+</div>
+
+<br>
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:B22222,50:0d1117,100:B22222&height=3&section=header&width=100%25"/>
 
 ## 📊 Painel de Stats (GitHub)
 
 <p align="center">
-  <img height="165em" src="https://github-readme-stats.vercel.app/api?username=ThomasFarss&show_icons=true&theme=radical&hide_border=true&count_private=true&rank_icon=github&bg_color=0d1117&title_color=FF1E1E&icon_color=8B0000&text_color=c9d1d9" />
-  <img height="165em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ThomasFarss&layout=compact&theme=radical&hide_border=true&bg_color=0d1117&title_color=FF1E1E&text_color=c9d1d9" />
-</p>
-
-<p align="center">
   <img src="https://github-readme-streak-stats-eight.vercel.app/?user=ThomasFarss&hide_border=true&background=0d1117&ring=FF1E1E&fire=FF1E1E&currStreakLabel=FF1E1E&sideLabels=c9d1d9&sideNums=c9d1d9&dates=8b949e&stroke=8B0000" />
-</p>
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=ThomasFarss&theme=radical&no-frame=true&row=1&column=7&margin-w=8&margin-h=8" />
 </p>
 
 <div align="center">
 
 <img src="https://img.shields.io/github/followers/ThomasFarss?label=%F0%9F%91%A5%20Squad&style=for-the-badge&color=FF1E1E&logo=github&logoColor=white&labelColor=0d1117" />
 <img src="https://img.shields.io/github/stars/ThomasFarss?label=%E2%AD%90%20Loot&style=for-the-badge&color=8B0000&logo=github&logoColor=white&labelColor=0d1117" />
-<img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2FThomasFarss&label=%F0%9F%93%A6%20Invent%C3%A1rio&query=%24.public_repos&style=for-the-badge&color=B22222&logo=github&logoColor=white&labelColor=0d1117" />
+<img src="https://img.shields.io/badge/%F0%9F%8E%AE%20Modo-Hardcore-B22222?style=for-the-badge&labelColor=0d1117" />
+
+</div>
+
+<br>
+
+<div align="center">
+
+🏆 **Achievements**
+
+<img src="https://img.shields.io/badge/🏅_Primeiro_Commit-0d1117?style=for-the-badge&color=1a0000" />
+<img src="https://img.shields.io/badge/🔥_Streak_Starter-0d1117?style=for-the-badge&color=1a0000" />
+<img src="https://img.shields.io/badge/📚_Sempre_Estudando-0d1117?style=for-the-badge&color=1a0000" />
 
 </div>
 
@@ -111,11 +152,11 @@ player:
   <img src="https://raw.githubusercontent.com/ThomasFarss/ThomasFarss/output/github-contribution-grid-snake-dark.svg" width="100%"/>
 </p>
 
-> 💡 **Nota:** essa animação da cobrinha comendo os quadradinhos de contribuição só aparece depois de configurar uma GitHub Action no repositório especial `ThomasFarss/ThomasFarss` (repositório com o mesmo nome do seu usuário). Se quiser, é só pedir que eu gero o workflow (`snake.yml`) pra ativar isso — é rápido.
+> 💡 **Nota:** essa animação da cobrinha comendo os quadradinhos de contribuição só aparece depois da GitHub Action (`snake.yml`) rodar no repositório especial `ThomasFarss/ThomasFarss`.
 
 <br>
 
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%">
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:B22222,50:0d1117,100:B22222&height=3&section=header&width=100%25"/>
 
 ## 📡 Multiplayer — Como me encontrar
 
@@ -127,8 +168,6 @@ player:
     <img src="https://img.shields.io/badge/GitHub-0d1117?style=for-the-badge&logo=github&logoColor=FF1E1E" />
   </a>
 </p>
-
-<br>
 
 <div align="center">
   <img src="https://komarev.com/ghpvc/?username=ThomasFarss&label=Visitantes%20nesse%20save&color=FF1E1E&style=for-the-badge" />
@@ -142,4 +181,4 @@ player:
 
 </div>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a0b2e,50:0d1117,100:1a0b2e&height=150&section=footer"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a0b2e,50:2b0000,100:0d1117&height=150&section=footer"/>
