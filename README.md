@@ -1,94 +1,49 @@
-# GameVault Downloads (PHP + MySQL)
+<h1 align="center">Olá, tudo bem? 👋</h1>
 
-Sistema web completo para gerenciamento e publicação de pastas/arquivos de download de jogos, com:
+<p align="center">
+  Estudante de <b>Análise e Desenvolvimento de Sistemas</b> na <b>Uninter</b> 🎓
+</p>
 
-- Área pública
-- Cadastro/login/recuperação de senha
-- Painel do usuário
-- Painel administrativo
-- Upload seguro e download com contadores
-- Pastas públicas, privadas (com senha) e em desenvolvimento
+---
 
-## 1) Estrutura de pastas
+### 🚀 Sobre mim
 
-```txt
-/config
-/admin
-/usuario
-/public
-  /assets/css
-  /assets/js
-/uploads
-  /covers
-  /files
-/includes
-/classes
-/sql
-```
+- 🔭 Atualmente estudando Análise e Desenvolvimento de Sistemas na **Uninter**
+- 💻 Trabalho com as linguagens abaixo
+- 🌱 Sempre aprendendo algo novo em programação
+- 📫 Fique à vontade para entrar em contato comigo
 
-## 2) Requisitos
+---
 
-- PHP 8.1+
-- MySQL 5.7+ ou MariaDB equivalente
-- Apache com `mod_rewrite`
-- phpMyAdmin (opcional)
+### 🛠️ Linguagens e Tecnologias
 
-## 3) Instalação
+<p align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" title="TypeScript" alt="TypeScript" width="50" height="50"/>&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="50" height="50"/>&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" title="Java" alt="Java" width="50" height="50"/>&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" title="HTML5" alt="HTML5" width="50" height="50"/>&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" title="CSS3" alt="CSS3" width="50" height="50"/>&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" title="PHP" alt="PHP" width="50" height="50"/>&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" title="Python" alt="Python" width="50" height="50"/>&nbsp;
+</p>
 
-1. Copie o projeto para seu servidor local (XAMPP/WAMP/LAMP).
-2. Crie/importe o banco em `phpMyAdmin` com o script: `sql/gamevault.sql`.
-3. Ajuste conexão em `config/config.php` (DB_HOST, DB_NAME, DB_USER, DB_PASS e BASE_URL).
-4. Garanta permissão de escrita no diretório `uploads/`.
-5. Acesse `http://localhost/ThomasFarss/public`.
+---
 
-## 4) Credenciais de teste
+<h3 align="center">📊 Estatísticas do GitHub</h3>
 
-- **Admin**: `admin@gamevault.local` / `123456`
-- **Usuário**: `joao@example.com` / `123456`
+<p align="center">
+  <img src="https://img.shields.io/github/followers/ThomasFarss?label=Seguidores&style=for-the-badge&color=8A2BE2&logo=github" />
+  <img src="https://img.shields.io/github/stars/ThomasFarss?label=Estrelas&style=for-the-badge&color=8A2BE2&logo=github" />
+</p>
+---
 
-> Observação: hashes já estão no SQL. Em produção, troque as senhas imediatamente.
+### 📫 Como me encontrar
 
-## 5) Fluxo principal
-
-### Área pública
-- `public/index.php`: busca e filtro por categoria, cards das pastas públicas aprovadas.
-- `public/folder.php`: exibe a pasta por slug amigável; trata status privada/desenvolvimento.
-- `public/download.php`: registra contagem e serve arquivo.
-
-### Autenticação
-- `public/register.php`: cadastro com hash seguro (`password_hash`).
-- `public/login.php`: login com `password_verify`.
-- `public/forgot_password.php` + `public/reset_password.php`: recuperação por token.
-- `public/logout.php`: encerra sessão.
-
-### Painel do usuário
-- `usuario/dashboard.php`: resumo e listagem de publicações.
-- `usuario/folder_form.php`: criar/editar pasta (capa, categoria, status, senha opcional).
-- `usuario/files.php`: upload de arquivos por pasta.
-- `usuario/profile.php`, `usuario/change_password.php`.
-
-### Painel admin
-- `admin/dashboard.php`: dashboard, usuários, pastas, arquivos, categorias e logs.
-- Aprovação de conteúdo, bloqueio/reativação de usuários, remoção de pastas.
-
-## 6) Segurança implementada
-
-- PDO com prepared statements (anti-SQL injection)
-- Escape de saída com `htmlspecialchars` (anti-XSS)
-- CSRF token nos principais formulários de autenticação/publicação
-- Upload com whitelist de extensões
-- Senhas com hash `password_hash` e validação com `password_verify`
-- Controle de sessão e middlewares (`requireLogin`, `requireAdmin`)
-
-## 7) URLs amigáveis
-
-Arquivo `public/.htaccess`:
-- `/p/{slug}` → `folder.php?slug={slug}`
-- `/download/{id}` → `download.php?id={id}`
-
-## 8) Observações de produção
-
-- Mover segredos de banco para variáveis de ambiente.
-- Limitar tamanho máximo de upload no `php.ini`.
-- Implementar exclusão física de arquivos removidos.
-- Integrar envio real de e-mail para recuperação de senha.
+<p align="left">
+  <a href="https://www.linkedin.com/in/SEU_LINKEDIN" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="40" height="40"/>
+  </a>&nbsp;
+  <a href="mailto:SEU_EMAIL@email.com" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" width="40" height="40"/>
+  </a>
+</p>
