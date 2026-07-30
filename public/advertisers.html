@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DreamsLive Shop | Para Anunciantes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="brand">DreamsLive Shop</div>
+        <div class="nav-links">
+          <a href="index.html">Início</a>
+          <a href="ads.html">Anúncios</a>
+          <a href="advertisers.html">Para Anunciantes</a>
+          <a href="seller-dashboard.html" target="_blank" rel="noreferrer">Área do Vendedor</a>
+          <a href="affiliates.html">Afiliados</a>
+          <a href="pricing.html">Planos & Descontos</a>
+          <a href="login.html">Login</a>
+        </div>
+        <div class="user-area" id="userArea"></div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section">
+        <h2>Área do Anunciante Externo</h2>
+        <p>
+          Publique campanhas, acompanhe vendas e receba relatórios mensais. Você paga pelo
+          desempenho e recebe o valor das vendas geradas na plataforma.
+        </p>
+        <div class="grid">
+          <div class="card">
+            <h3>1. Envie sua campanha</h3>
+            <p>Defina meta, orçamento e URL principal do seu anúncio.</p>
+          </div>
+          <div class="card">
+            <h3>2. Acompanhe resultados</h3>
+            <p>Dashboard com leads, vendas e conversões em tempo real.</p>
+          </div>
+          <div class="card">
+            <h3>3. Receba pelos resultados</h3>
+            <p>Repasse automático das vendas após a confirmação de pagamento.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Campanhas externas ativas</h2>
+        <div class="grid" id="externalAdsGrid"></div>
+      </section>
+
+      <section class="section">
+        <h2>Solicitar publicação de anúncio externo</h2>
+        <div class="card">
+          <form class="form">
+            <input type="text" placeholder="Nome da marca" required />
+            <input type="url" placeholder="URL da campanha" required />
+            <input type="text" placeholder="Objetivo (ex: Conversões)" />
+            <input type="text" placeholder="Orçamento mensal" />
+            <button class="button" type="submit">Enviar solicitação</button>
+          </form>
+          <div class="notice">
+            Equipe DreamsLive Shop analisará e retornará com proposta de exibição e comissão.
+          </div>
+          <div style="margin-top: 16px;">
+            <a class="button" href="seller-dashboard.html" target="_blank" rel="noreferrer">Acessar Área do Vendedor</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">DreamsLive Shop • Parcerias de alto desempenho.</footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

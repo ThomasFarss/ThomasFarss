@@ -1,0 +1,12 @@
+{
+  "name": "dreamslive-shop",
+  "version": "1.0.0",
+  "description": "DreamsLive Shop - plataforma de compras online e anúncios",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
