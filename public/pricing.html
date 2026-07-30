@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DreamsLive Shop | Planos & Descontos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="brand">DreamsLive Shop</div>
+        <div class="nav-links">
+          <a href="index.html">Início</a>
+          <a href="ads.html">Anúncios</a>
+          <a href="advertisers.html">Para Anunciantes</a>
+          <a href="seller-dashboard.html" target="_blank" rel="noreferrer">Área do Vendedor</a>
+          <a href="affiliates.html">Afiliados</a>
+          <a href="pricing.html">Planos & Descontos</a>
+          <a href="login.html">Login</a>
+        </div>
+        <div class="user-area" id="userArea"></div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section">
+        <h2>Planos conectados à sua outra plataforma</h2>
+        <p>
+          Usuários pagos da plataforma parceira têm descontos automáticos aqui. As regras atuais
+          são:
+        </p>
+        <div class="grid">
+          <div class="card">
+            <h3>Usuário Prata</h3>
+            <p class="highlight">5% de desconto</p>
+            <p>Aplicado em anúncios internos e afiliados selecionados.</p>
+          </div>
+          <div class="card">
+            <h3>Usuário Gold</h3>
+            <p class="highlight">8% de desconto</p>
+            <p>Benefício estendido para campanhas externas e produtos premium.</p>
+          </div>
+          <div class="card">
+            <h3>Regras de validação</h3>
+            <p>Integração com a conta paga da outra plataforma via ID ou e-mail.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Calculadora rápida de desconto</h2>
+        <div class="card">
+          <form class="form" id="discountForm">
+            <select name="tier" required>
+              <option value="">Selecione o nível</option>
+              <option value="prata">Prata</option>
+              <option value="gold">Gold</option>
+            </select>
+            <input type="number" name="price" placeholder="Valor da compra" step="0.01" required />
+            <button class="button" type="submit">Calcular</button>
+          </form>
+          <div class="notice" id="discountNotice" style="display: none;"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">DreamsLive Shop • Benefícios exclusivos.</footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
